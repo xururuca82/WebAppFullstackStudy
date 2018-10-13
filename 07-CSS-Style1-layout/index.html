@@ -1,0 +1,102 @@
+<html>
+  <head>
+    <title>메타 태그 실습하기</title>
+    <meta charset="utf-8">
+    <meta name="description" content="메타 태그 알아보기">
+    <meta name="keywords" content="메타, 태그, tag, meta">
+    <meta name="author" content="홍길동">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- favicon start-->
+    <link rel="apple-touch-icon" sizes="57x57" href="img/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="img/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="img/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="img/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="img/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="img/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="img/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="img/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="img/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="img/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
+    <link rel="manifest" href="img/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="img/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <!-- favicon end -->
+  </head>
+  <body>
+    <style>
+      table {
+        width: 100%;
+        border: 1px solid black;
+        border-collapse: collapse;
+      }
+
+      td {
+        border: 1px solid black;
+      }
+
+      div.header {
+        width:100%;
+        height:50px;
+        background-color:rgb(187,200,255);
+        text-align:center;
+      }
+      div.content {
+        width: 100%;
+        height: 500px;
+        background-color: rgba(245, 245, 245);
+      }
+      .women {
+        color: red;
+      }
+      .men {
+        color: blue;
+      }
+      #phone {
+        color: orange;
+      }
+      #highlight-men-3 {
+        font-weight: bold;
+      }
+    </style>
+    <div class="header">
+      <h1>회원명부</h1>
+    </div>
+    <div class="content">
+      <table>
+        <tr>
+          <th>순번</th>
+          <th>이름</th>
+          <th>성별</th>
+          <th id="phone">전화번호</th>
+        </tr>
+        <tr>
+          <td >1</td>
+          <td>김씨</td>
+          <td class="women">여자</td>
+          <td>010-0000-0000</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>박씨</td>
+          <td class="men">남자</td>
+          <td>010-1234-1234</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td rowspan="2">박씨</td>
+          <td colspan="2" id="highlight-men-3" class="men">남자</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td class="men">남자</td>
+          <td>010-1234-1234</td>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>
