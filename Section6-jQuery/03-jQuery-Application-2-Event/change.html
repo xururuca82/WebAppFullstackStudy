@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <title>이벤트 실습하기</title>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+
+    <style type="text/css">
+
+    </style>
+  </head>
+  <body>
+    <select class="" name="hobby" multiple="multiple">
+      <option value="">코딩</option>
+      <option value="">독서</option>
+      <option value="">축구</option>
+      <option value="">요리</option>
+      <option value="">청소</option>
+    </select>
+
+    <div id="selected-hobby" class="">
+
+    </div>
+    <script type="text/javascript">
+      $("select").change(function(){
+        var str = "";
+
+        $("select option:selected").each(function(){
+          str = str + $(this).text() + " ";
+        });
+
+        $("#selected-hobby").text(str);
+      });
+    </script>
+  </body>
+</html>

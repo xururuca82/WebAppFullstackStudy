@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko" >
+  <head>
+    <meta charset="utf-8">
+    <title>이벤트 실습하기</title>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+
+    <style type="text/css">
+      span {
+        color: #9f3434;
+      }
+    </style>
+  </head>
+  <body>
+    <p class="para">문단1</p>
+    <p class="para">문단2</p>
+    <p class="para">문단3</p>
+
+    <p><input type="text" value="이름입력"></p>
+    <p><input type="text" value="나이입력"></p>
+
+    <script type="text/javascript">
+      // click 이벤트
+      $('p.para').click(function(){
+        $(this).text('클릭됨!');
+      });
+
+      // hover 이베트
+      $('p').hover(function(){
+        $(this).append("<span>****</span>");
+      }, function(){
+        $(this).find("span").remove();
+      });
+
+      //focus 이벤트
+      $('input').focus(function(){
+
+        $(this).val('----'); // value
+      });
+    </script>
+  </body>
+</html>
