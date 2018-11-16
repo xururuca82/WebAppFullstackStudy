@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <title>타이머 실습하기</title>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+  </head>
+  <body>
+    <script type="text/javascript">
+    // function declaration
+    var n = 0;
+    var timer;
+
+    function onTime() {
+      alert('실행됨');
+      n++;
+
+      if (n == 3) {
+        clearInterval(timer);
+      }
+    }
+
+    // setTimeout
+    //setTimeout("onTime()", 5000);
+
+    $(document).ready(function(){
+      timer = setInterval("onTime()", 2000);
+    });
+    // setInterval
+
+
+    </script>
+  </body>
+</html>
