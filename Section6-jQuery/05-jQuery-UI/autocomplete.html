@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+
+    <script src="jquery-ui/jquery-ui.min.js"></script>
+
+    <link rel="stylesheet" href="jquery-ui/jquery-ui.min.css" />
+
+    <link rel="stylesheet" href="jquery-ui/jquery-ui.theme.min.css" />
+
+    <style>
+
+    </style>
+  </head>
+  <body>
+    <input type="text" id="tags" name="" value="">
+
+    <script type="text/javascript">
+      var availables = [
+        'Apple', 'Google', 'Facebook'
+      ];
+
+      $(document).ready(function(){
+        $("#tags").autocomplete({
+          source: availables
+        });
+      });
+    </script>
+  </body>
+</html>

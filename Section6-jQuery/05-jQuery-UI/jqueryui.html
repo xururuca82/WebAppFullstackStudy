@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <title>jQuery UI 실습하기</title>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+
+    <script src="jquery-ui/jquery-ui.min.js"></script>
+
+    <link rel="stylesheet" href="jquery-ui/jquery-ui.min.css" />
+
+    <link rel="stylesheet" href="jquery-ui/jquery-ui.theme.min.css" />
+
+    <style>
+      #preview {
+        height: 100px;
+        width: 100px;
+      }
+
+      .slider-color {
+        width: 200px;
+      }
+    </style>
+  </head>
+  <body>
+    <p>Date: <input type="text" id="datepicker" name="" value=""></p>
+
+    <!-- <div id="slider"></div> -->
+
+    <div id="preview"></div>
+    <div id="red-slider" class="slider-color"></div>
+    <div id="green-slider" class="slider-color"></div>
+    <div id="blue-slider" class="slider-color"></div>
+
+    <script type="text/javascript">
+      function hexFromRGB(r,g,b) {
+        var hex = [
+          r.toString(16), // --> 15 => F
+          g.toString(16), // --> 4 => 4
+          b.toString(16) // --> 16 => 10
+        ];
+
+        // #F410(x)
+        // #0F0410(o)
+
+        $.each(hex, function(nr, val){ // nr => index, val => 값
+          if (val.length === 1) { // 1 == "1" => true, 1 === "1" => false
+            hex[nr] = "0" + val;
+          }
+        });
+
+        return hex.join("").toUpperCase();
+      }
+
+      function refreshSwatch() {
+        var red = $("#red-slider").slider("value");
+        var green = $("#green-slider").slider("value");
+        var blue = $("#blue-slider").slider("value");
+
+        hex = hexFromRGB(red, green, blue);
+        $("#preview").css('background-color', "#"+hex);
+      }
+
+      $(document).ready(function(){
+        var option = {
+          monthNames: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
+          monthNamesShort: ['1','2','3','4','5','6','7','8','9','10','11','12'],
+          dayNames: ['일요일','월요일','화요일','수요일','목요일','금요일','토요일'],
+          dayNamesShort: ['일','월','화','수','목','금','토'],
+          dayNamesMin: ['일','월','화','수','목','금','토'],
+          dateFormat: 'yy년mm월dd일'
+        };
+        $('#datepicker').datepicker(option);
+
+        // $('#slider').slider();
+
+        // slider 불러오기
+
+        $("#red-slider, #green-slider, #blue-slider").slider({
+            orientation: 'horizontal',
+            range: "min",
+            max:255,
+            value:127,
+            slide:refreshSwatch,
+            change:refreshSwatch
+        }
+        );
+        refreshSwatch();
+      });
+    </script>
+  </body>
+</html>
