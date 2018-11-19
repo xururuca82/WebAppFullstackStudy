@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <title>ECMA Script6 소개</title>
+  </head>
+  <body>
+    <h2><a href="https://es6console.com">ES6console.com</a></h2>
+    <h3>Script 코드</h3>
+    <script type="text/javascript">
+
+      //----------- 1. let, const ----------------------
+      // var number = 0;
+      // console.log(number);
+      //
+      // let number2 = 1;
+      // console.log(number2);
+
+      //----- var vs let의 차이는 무엇?-----
+      // var로 재정의
+      // var number = 3;
+      // console.log(number); //-->3
+      //
+      // if (true) {
+      //   console.log(number); //-->3
+      //
+      //   var number = 4;
+      // }
+      //
+      // console.log(number); //-->4
+
+      // let으로 재정의
+      // let number = 3;
+      // console.log(number); //-->3
+      //
+      // if (true) {
+      //   let number = 4;
+      //   console.log(number); //-->4
+      // }
+      //
+      // console.log(number); //-->3
+
+      //let으로 재정의하지 않음
+      // let number = 3;
+      // console.log(number); //-->3
+      //
+      // if (true) {
+      //   number = 4;
+      //   console.log(number); //-->4
+      // }
+      //
+      // console.log(number); //-->4
+
+      // const
+      // const number = 3;
+      // console.log(number); //-->3
+      //
+      // if (true) {
+      //   const number = 4;
+      //   console.log(number); //-->4
+      // }
+      //
+      // number = 8; // const 같은 scope에서는 변수값 변경 불가
+      // console.log(number); //-->3
+
+      //*같은 scope에서는 let과 const의 재정의가 불가능하다.
+      // ---------------------------------------------------
+
+      //---------------- 2. multi-line string --------------
+      //기존방식
+//       var htmlCode = "abcdefg abcdefg abcdefg abcdefg abcdefg \n"+ "abcdefg abcdefg abcdefg abcdefg abcdefg abcdefg \n";
+//       //es6 방식
+//       var htmlCode = `abcdefg abcdefg abcdefg abcdefg abcdefg
+// asdfsdf
+// abcdefg abcdefg
+//           abcdefg abcdefg abcdefg abcdefg`;
+//       console.log(htmlCode);
+      //------------------------------------------------------
+
+      //----------------- 3. for-of --------------------------
+      //배열의 값 출력하기
+      // let array_of_al = ['a','b','c','d'];
+      //기존방식
+      // for(var i=0; i<array_of_al.length; i++) {
+      //   console.log(array_of_al[i]);
+      // }
+      //es6
+      // for (let elem of array_of_al) {
+      //   console.log(elem);
+      // }
+      //-----------------------------------------------------
+
+      //----------------- 4. function, default values---------
+      //기존방식
+      // function addBy(x, y) {
+      //   console.log(x+y);
+      // }
+      // addBy(3,5);
+      //es6
+      // function addBy(x=0, y=2) {
+      //   console.log(x+y);
+      // }
+      //addBy(3,5); //-->8
+      // addBy(3) //-->5
+      // addBy() //-->2
+      //---------------------------------------------------
+
+      //---------------- 5. format -------------------------
+      //기존방식
+      // var name = 'Apple';
+      // var helloText = 'Hello, ';
+      // console.log(helloText+name);
+      //es6
+      // var name = 'Apple';
+      // var helloText = `Hello, ${name}`;
+      // console.log(helloText);
+
+      //----------------- 6. arrow function ---------------
+      //기존방식
+      // var func = function (number) {
+      //   return number * 5;
+      // }
+      // console.log(func(5));
+      //es6
+      // var func = number => number * 5;
+      // console.log(func(5));
+
+      // arrow function 간단하지 않은 예제
+      // const numbers = [1,2,3,4];
+      // const cubed = numbers.map(number => {
+      //   const squared = number * number;
+      //   return squared * number;
+      // });
+      //-->위 코드 풀이
+      /// 중괄호로 묶을 수 있다.
+      // var func = number => {
+      //   const squared = number * number;
+      //   return squared * number;
+      // }
+      /// Array에는 map이라는 내장 함수가 있다. 파라미터는 함수를 직접 넘겨주어야 한다.
+      // const cubed = numbers.map(func);
+      //-->위 코드 다시 풀이
+      // var func = function(number) {
+      //   const squared = number * number;
+      //   return squared * number;
+      // }
+      // const cubed = numbers.map(func);
+      // console.log(cubed);
+      // console.log(numbers);
+      //----------------------------------------------------
+
+      //------------------ 7. classes ----------------------
+      class Rectangle {
+        constructor(height, width) {
+          this.height = height;
+          this.width = width;
+        }
+        // get color() {
+        //   return this._color;
+        // }
+        // set color(c) {
+        //   this._color = c;
+        // }
+        get dimensions() {
+          return `height: ${this.height}, width: ${this.width}`;
+        }
+      }
+      var r = new Rectangle(100,200);
+      r.color = 'red';
+      console.log(r.width);
+      console.log(r.height);
+      console.log(r.color);
+      console.log(r.dimensions);
+
+
+
+
+
+    </script>
+  </body>
+</html>
