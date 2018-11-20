@@ -1,7 +1,8 @@
 /** @format */
 
 import {AppRegistry} from 'react-native';
-import App from './App';
+import ImageScene from './ImageScene';
 import {name as appName} from './app.json';
+import BlinkScene from './BlinkScene';
 
-AppRegistry.registerComponent(appName, () => App);
+AppRegistry.registerComponent(appName, () => BlinkScene);
