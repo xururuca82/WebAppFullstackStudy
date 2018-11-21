@@ -5,7 +5,7 @@
     <title>React Native Setting</title>
   </head>
   <body>
-    <h2><a href="https://facebook.github.io/react-native/docs/getting-started">리액트 네이트브 설정</a></h2>
+    <h2><a href="https://facebook.github.io/react-native/docs/getting-started">리액트 네이티브 설정</a></h2>
     <p>
       react-native log-android 를 통해 로그확인<br>
 
@@ -30,7 +30,7 @@
       ---5.componentDidUpdate<br>
 
       -3.Unmounting : 화면이 사라질 때<br>
-      ---1.componentWillUnmount
+      ---1.componentWillUnmount<br>
       <br>
       리액트 네이티브 component의 속성<br>
       -1.props(properties) : 화면에 보여질 속성 - 화면이 뜬 상태에서는 내용의 변경이 안 - 외부에 있는 컴포넌트가 새로 생성될 컴포넌트한테 내용을 넣어준다<br>
@@ -41,7 +41,7 @@
       Mobile App - Scenes
     </p>
     <p>
-      안드로이드 배치파일 만들기-runAndroid.bat(txt파일에서 확장자명 변경)
+      안드로이드 배치파일 만들기-runAndroid.bat(txt파일에서 확장자명 변경)<br>
       내용 추가: emulator -avd Nexus_5X_API_23 -wipe-data -no-boot-anim
     </p>
     <p>
@@ -54,7 +54,7 @@
     </p>
     <p>
       1.react-navigation 설정시(React3 부터 변경된 부분):<br>
-      <a href="https://stackoverflow.com/questions/53367195/invariant-violation-the-navigation-prop-is-missing-for-this-navigator">Stack overflow에 있는 해결 링크</a>
+      <a href="https://stackoverflow.com/questions/53367195/invariant-violation-the-navigation-prop-is-missing-for-this-navigator">Stack overflow에 있는 해결 링크</a><br>
       <code>
         import { createStackNavigator, createAppContainer } from 'react-navigation';
           const MainNavigation = createStackNavigator({
@@ -63,15 +63,38 @@
 
         const App = createAppContainer(MainNavigation);
         AppRegistry.registerComponent(appName, () => App);
-      </code>
+      </code><br>
       2. undefined is not an object (evaluating 'RNGestureHandlerModule.State') error 발생<br>
-      <a href="https://github.com/kmagiera/react-native-gesture-handler/issues/205">github에 있는 해결 링크</a>
+      <a href="https://github.com/kmagiera/react-native-gesture-handler/issues/205">github에 있는 해결 링크</a><br>
       <code>
         npm install --save react-native-gesture-handler(일반적으로 설치되어 있음)
         react-native link react-native-gesture-handler(이것만 실행해도 됨)
-      </code>
+      </code><br>
       3. <a href="https://reactnavigation.org/">React navigation 설정 설명</a>
-
+    </p>
+    <p>
+      1.지도사용을 위한 설정<br>
+      android - app - src - main 안에 AndroidManifest.xml 파일에 아래 코드 추가<br>
+      <code>
+        &lt;uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/&gt;
+      </code><br>
+      ---------------------- 여기까지 실행해보았음 -------------------
+      2.설치<br>
+      <code>
+        npm install react-native-maps --save
+        react-native link react-native-maps
+      </code><br>
+      &nbsp;&nbsp; android - app - src - main 안에 AndroidManifest.xml 안 application 태그안에 아래 코드 추가<br>
+      <code>
+        &lt;meta-data
+        android:name="com.google.android.geo.API_KEY"
+        android:value="AIzaSyClbdB2XWPYXeQ4RojyPjm8pvASecgq6Nc"/&gt;
+      </code><br>
+      &nbsp;&nbsp; 빌드할 때 fail이 발생할 경우<br>
+      <code>
+        cd android
+        gradlew clean
+      </code>
     </p>
 
   </body>
