@@ -40,6 +40,39 @@
       componet -scene(화면 하나) - App
       Mobile App - Scenes
     </p>
+    <p>
+      안드로이드 배치파일 만들기-runAndroid.bat(txt파일에서 확장자명 변경)
+      내용 추가: emulator -avd Nexus_5X_API_23 -wipe-data -no-boot-anim
+    </p>
+    <p>
+      react-native를 편하기 쓰기 위한 Atom pakage 설치: Js, babel
+    </p>
+    <p>
+      react-native 네비게이션을 설치할 때 : <br>
+      -1.에뮬레이터와의 연결을 끊고(중간에 있는 node 창 끄기) <br>
+      -2.콘솔에서 앱이 설치되어 있는 폴더안에서 npm install --save react-navigation 입력
+    </p>
+    <p>
+      1.react-navigation 설정시(React3 부터 변경된 부분):<br>
+      <a href="https://stackoverflow.com/questions/53367195/invariant-violation-the-navigation-prop-is-missing-for-this-navigator">Stack overflow에 있는 해결 링크</a>
+      <code>
+        import { createStackNavigator, createAppContainer } from 'react-navigation';
+          const MainNavigation = createStackNavigator({
+          Index : { screen: IndexScene },
+        });
+
+        const App = createAppContainer(MainNavigation);
+        AppRegistry.registerComponent(appName, () => App);
+      </code>
+      2. undefined is not an object (evaluating 'RNGestureHandlerModule.State') error 발생<br>
+      <a href="https://github.com/kmagiera/react-native-gesture-handler/issues/205">github에 있는 해결 링크</a>
+      <code>
+        npm install --save react-native-gesture-handler(일반적으로 설치되어 있음)
+        react-native link react-native-gesture-handler(이것만 실행해도 됨)
+      </code>
+      3. <a href="https://reactnavigation.org/">React navigation 설정 설명</a>
+
+    </p>
 
   </body>
 </html>
